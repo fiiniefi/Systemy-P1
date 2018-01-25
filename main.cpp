@@ -23,6 +23,8 @@ int main()
         if (pthread_create(&threads[i], NULL, &hello, &thread_vals[i]))
             std::cout << "Error: Thread couldn't be created." << std::endl;
     }
+    for (int i = 0; i < length; i++)
+        pthread_join(threads[i], NULL);
     std::cout << "Main thread." << std::endl;
     std::cout.flush();
     pthread_exit(NULL);
